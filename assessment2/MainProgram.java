@@ -26,11 +26,13 @@ public class MainProgram
         System.out.println("Loading text file...");
         
         try {
+            // Load text file
             Scanner sc = new Scanner(new File(FOLDER_PATH + FILE_NAME));
-            String title = sc.nextLine();
-            String labels = sc.nextLine();
+            String title = sc.nextLine(); // first row whichis the title
+            String labels = sc.nextLine(); // csv labels or column names
             System.out.println(title);
             try {
+                // Loop thru the remaining csv
                 while (sc.hasNext()) {
                     String line = sc.nextLine();
                     Scanner scLine = new Scanner(line);
@@ -71,6 +73,7 @@ public class MainProgram
         mainMenu();
     }
     
+    // display the main menu and its options
     public static void mainMenu() {
         System.out.println("Choose an option: ");
         System.out.println("[1] - Show list of students with marks");
@@ -80,6 +83,7 @@ public class MainProgram
         int input = 0;
         do {
             Scanner sc = new Scanner(System.in);
+            // check if use inputs a valid number
             try {
                 input = Integer.parseInt(sc.nextLine());
                 switch (input) {
@@ -96,6 +100,7 @@ public class MainProgram
         } while (input < 1 && input > 4);
     }
     
+    // lists all student with the format Last Name, First Name (Student ID) Assessment1 Assesment2 Assement3 Total Mark: TotalMark
     public static void showStudentList() {
         for (Student student: students) {
             System.out.format("%-40s (%s) %05.2f %05.2f %05.2f Total: %05.2f", student.getFullName(), 
@@ -104,6 +109,7 @@ public class MainProgram
         }
     }
     
+    // requires an input and only shows students who are below the mark
     public static void showStudentListWithThreshold() {
         System.out.println("Please input a threshold between 0-100");
         double input = 0;
@@ -128,6 +134,7 @@ public class MainProgram
         }
     }
     
+    // shows first 10 in the student list sorted descending to display top 10 students
     public static void showTop10Students() {
         int i = 1;
         sortStudents("desc");
@@ -142,6 +149,7 @@ public class MainProgram
         }
     }
     
+    // shows first 10 in the student list sorted ascending to display bottom 10 students
     public static void showBottom10Students() {
         int i = 1;
         sortStudents("asc");
@@ -156,6 +164,7 @@ public class MainProgram
         }
     }
     
+    // sort students
     private static void sortStudents(String order) {
         for (int i = 0; i < students.size() - 1; i++) {
             for (int j = 0; j < students.size() - i - 1; j++) {
