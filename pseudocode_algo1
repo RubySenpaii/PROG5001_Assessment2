@@ -1,0 +1,7 @@
+ask if top10 or bottom10
+if top10
+    sort student list total mark in descending order
+    print student details (full name, student id, assessment1 mark, assessment2 mark, assessment3 mark, total mark)
+else
+    sort student list total mark in ascending order
+    print student details (full name, student id, assessment1 mark, assessment2 mark, assessment3 mark, total mark)

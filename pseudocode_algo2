@@ -1,0 +1,6 @@
+show options for user
+ask for input
+if input is not recognized or invalid
+    print "Invalid Input"
+else
+    execute function based on input
